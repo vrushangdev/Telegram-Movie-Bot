@@ -84,7 +84,9 @@ public class findmovie {
         
         
         try {
-            YoutubeDLRequest request = new YoutubeDLRequest(url, System.getProperty("user.home")+"/Desktop/play");
+            String path = System.getProperty("user.home")+"/Desktop/play";
+            YoutubeDL.setExecutablePath("/usr/local/Cellar/youtube-dl/2018.12.03/bin/youtube-dl");
+            YoutubeDLRequest request = new YoutubeDLRequest(url,path );
             request.setOption("get-url");
             YoutubeDLResponse response = YoutubeDL.execute(request);
             String stdOut = response.getOut(); // Executable output
